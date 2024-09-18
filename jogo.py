@@ -44,7 +44,7 @@ def enforcou():
 
 def abertura():
     print("/****************/")
-    print("/  Jogo de Forca! /")
+    print("/  Palavra Enforcada /")
     print("/****************/\n")
 
 
