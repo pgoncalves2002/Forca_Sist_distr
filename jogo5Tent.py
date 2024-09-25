@@ -4,6 +4,7 @@ palavra_secreta = ""
 chutes = []
 chutesdados = 0
 max_erros = 5  # Máximo de erros permitidos
+chutesErrados = []
 
 
 def start_server():
@@ -56,7 +57,10 @@ def abertura():
 
 def chuta():
     global chutesdados
-    chute = input("Qual letra? ").lower()  # Converte para minúsculas
+    chute = input("\nQual letra? ").lower()  # Converte para minúsculas
+    if chute not in palavra_secreta:
+        chutesErrados.append(chute)
+        print(f"\nNão tem a letra '{chute}' na palavra secreta {chutesErrados} ")
     if not chute.isalpha() or len(chute) != 1:  # Verifica se é uma única letra
         print("Entrada inválida. Digite uma letra.")
     elif jachutou(chute):
@@ -98,11 +102,14 @@ def joga():
 
     while not ganhou() and not enforcou():
         desenha_forca()
-        print(f"Você tem {erros_restantes()} erros restantes.")
+        print(f"Você tem {erros_restantes()} vidas restantes.")
         chuta()
 
     if ganhou():
-        print("\nParabéns! Você ganhou!")
+        print(f"\nParabéns! Você ganhou! A palavra era '{palavra_secreta}'")
+        print(f"Você conseguiu com {erros_restantes()} vidas")
+        print(chutes)
+
     else:
         print(f"\nVocê foi enforcado! A palavra era '{palavra_secreta}'")
 
