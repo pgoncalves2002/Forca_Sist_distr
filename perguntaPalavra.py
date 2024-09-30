@@ -10,6 +10,7 @@ def send_string():
 
     # Fecha a conexão
     client_socket.close()
+    print("Palavra enviada com sucesso!")
 
 
 print("Joagador 1")
