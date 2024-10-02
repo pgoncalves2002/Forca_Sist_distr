@@ -61,7 +61,7 @@ def chuta():
     if chute not in palavra_secreta:
         chutesErrados.append(chute)
         print(f"\nNão tem a letra '{chute}' na palavra secreta")
-        print(f"Letras erradas: {chutesErrados}")
+        print(f"Letras incorretas: {chutesErrados}")
     if not chute.isalpha() or len(chute) != 1:  # Verifica se é uma única letra
         print("Entrada inválida. Digite uma letra.")
     elif jachutou(chute):
